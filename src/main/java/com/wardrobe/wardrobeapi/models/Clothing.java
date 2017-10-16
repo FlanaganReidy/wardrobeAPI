@@ -4,6 +4,24 @@ public class Clothing {
     String name;
     int sleeveLength;
     int fabricWeight;
+    Boolean isClean;
+    Mood mood;
+
+    public Boolean getClean() {
+        return isClean;
+    }
+
+    public void setClean(Boolean clean) {
+        isClean = clean;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
+    }
 
     public Clothing() {
     }
