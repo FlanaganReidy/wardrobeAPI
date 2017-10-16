@@ -1,4 +1,4 @@
-package com.wardrobe.wardrobeapi;
+package com.wardrobe.wardrobeapi.models;
 
 public class Clothing {
     String name;
