@@ -1,9 +1,7 @@
 package com.wardrobe.wardrobeapi.controller;
 
 import com.wardrobe.wardrobeapi.models.Clothing;
-import com.wardrobe.wardrobeapi.repository.WardrobeRepository;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
-import com.wardrobe.wardrobeapi.service.WardrobeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
