@@ -6,22 +6,8 @@ public class Clothing {
     int fabricWeight;
     Boolean isClean;
     Mood mood;
+    Color color;
 
-    public Boolean getClean() {
-        return isClean;
-    }
-
-    public void setClean(Boolean clean) {
-        isClean = clean;
-    }
-
-    public Mood getMood() {
-        return mood;
-    }
-
-    public void setMood(Mood mood) {
-        this.mood = mood;
-    }
 
     public Clothing() {
     }
@@ -48,5 +34,29 @@ public class Clothing {
 
     public void setFabricWeight(int fabricWeight) {
         this.fabricWeight = fabricWeight;
+    }
+
+    public Boolean getClean() {
+        return isClean;
+    }
+
+    public void setClean(Boolean clean) {
+        isClean = clean;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }
