@@ -1,6 +1,8 @@
 package com.wardrobe.wardrobeapi.models;
 
 
+import com.wardrobe.wardrobeapi.Enums.Color;
+import com.wardrobe.wardrobeapi.Enums.Mood;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Column;
@@ -33,7 +35,7 @@ public class Clothing {
     public Clothing() {
     }
 
-    
+
 
     public String getName() {
         return name;

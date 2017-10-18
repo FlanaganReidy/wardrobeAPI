@@ -30,7 +30,7 @@ public class WardrobeServiceImpl implements WardrobeService{
 
     @Override
     public List<Clothing> get() {
-        return wardrobeRepository.findAll();
+        return (List<Clothing>) wardrobeRepository.findAll();
     }
 
     @Override
