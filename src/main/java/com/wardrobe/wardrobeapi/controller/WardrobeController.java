@@ -21,13 +21,14 @@ public class WardrobeController {
     }
 
     @RequestMapping (path = "/api/clothing/add", method = RequestMethod.POST)
-    public void addClothes(String name, int fabricWeight, int sleeveLength) {
+    public boolean addClothes(String name, int fabricWeight, int sleeveLength) {
         Clothing clothing = new Clothing();
         clothing.setName(name);
         clothing.setFabricWeight(fabricWeight);
         clothing.setSleeveLength(sleeveLength);
         clothing.setClean(true);
         wardrobeService.add(clothing);
+        return true;
     }
 
     @RequestMapping(path = "/api/clothing/update", method = RequestMethod.PUT)
@@ -38,7 +39,8 @@ public class WardrobeController {
     }
 
     @RequestMapping(path = "api/clothing/delete", method = RequestMethod.DELETE)
-    public void deleteClothes(int id){
+    public boolean deleteClothes(int id){
         wardrobeService.delete(id);
+        return true;
     }
 }

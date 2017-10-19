@@ -17,9 +17,9 @@ public class Clothing {
     @Column(name = "name")
     String name;
     @Column(name = "sleeveLength")
-    int sleeveLength;
+    private Integer sleeveLength;
     @Column(name = "fabricWeight")
-    int fabricWeight;
+    private Integer fabricWeight;
     @Column(name = "isClean")
     Boolean isClean;
     @Column(name = "mood")
@@ -32,7 +32,6 @@ public class Clothing {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -41,6 +40,12 @@ public class Clothing {
         this.name = name;
     }
 
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public int getSleeveLength() {
         return sleeveLength;
     }
