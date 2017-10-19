@@ -21,13 +21,20 @@ public class WardrobeController {
     }
 
     @RequestMapping (path = "/api/clothing/add", method = RequestMethod.POST)
-    public void addClothes(Clothing clothing) {
+    public void addClothes(String name, int fabricWeight, int sleeveLength) {
+        Clothing clothing = new Clothing();
+        clothing.setName(name);
+        clothing.setFabricWeight(fabricWeight);
+        clothing.setSleeveLength(sleeveLength);
+        clothing.setClean(true);
         wardrobeService.add(clothing);
     }
 
     @RequestMapping(path = "/api/clothing/update", method = RequestMethod.PUT)
-    public void updateClothing(Clothing clothing){
+    public boolean updateClothing(Integer id){
+        Clothing clothing = wardrobeService.getById(id);
         wardrobeService.update(clothing);
+        return true;
     }
 
     @RequestMapping(path = "api/clothing/delete", method = RequestMethod.DELETE)
