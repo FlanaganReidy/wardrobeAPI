@@ -18,7 +18,7 @@ public class WardrobeController {
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String index(){
-        return "Index";
+        return "index";
     }
 
     @RequestMapping (path = "/api/clothing/all", method = RequestMethod.GET )
