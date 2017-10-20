@@ -15,6 +15,12 @@ public class WardrobeController {
     @Autowired
     WardrobeService wardrobeService;
 
+
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String index(){
+        return "Index";
+    }
+
     @RequestMapping (path = "/api/clothing/all", method = RequestMethod.GET )
     public List<Clothing> getAllClothes(){
         return wardrobeService.get();
