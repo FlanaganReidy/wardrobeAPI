@@ -3,10 +3,7 @@ package com.wardrobe.wardrobeapi.controller;
 import com.wardrobe.wardrobeapi.models.Clothing;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,17 +15,20 @@ public class WardrobeController{
     WardrobeService wardrobeService;
 
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(produces = "application/json", path = "/", method = RequestMethod.GET)
+    @ResponseBody
     public String index(){
         return "index";
     }
 
-    @RequestMapping (path = "/api/clothing/all", method = RequestMethod.GET )
+    @RequestMapping (produces = "application/json", path = "/api/clothing/all", method = RequestMethod.GET )
+    @ResponseBody
     public List<Clothing> getAllClothes(){
         return wardrobeService.get();
     }
 
-    @RequestMapping (path = "/api/clothing/add", method = RequestMethod.POST)
+    @RequestMapping (produces = "application/json", path = "/api/clothing/add", method = RequestMethod.POST)
+    @ResponseBody
     public boolean addClothes(String name, int fabricWeight, int sleeveLength) {
         Clothing clothing = new Clothing();
         clothing.setName(name);
@@ -39,14 +39,16 @@ public class WardrobeController{
         return true;
     }
 
-    @RequestMapping(path = "/api/clothing/update", method = RequestMethod.PUT)
+    @RequestMapping(produces = "application/json", path = "/api/clothing/update", method = RequestMethod.PUT)
+    @ResponseBody
     public boolean updateClothing(Integer id){
         Clothing clothing = wardrobeService.getById(id);
         wardrobeService.update(clothing);
         return true;
     }
 
-    @RequestMapping(path = "api/clothing/delete", method = RequestMethod.DELETE)
+    @RequestMapping(produces = "application/json", path = "api/clothing/delete", method = RequestMethod.DELETE)
+    @ResponseBody
     public boolean deleteClothes(int id){
         wardrobeService.delete(id);
         return true;
