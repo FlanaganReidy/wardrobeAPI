@@ -18,8 +18,8 @@ public class WardrobeapiApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/api/clothing/add").allowedOrigins("http://localhost:9000");
-				registry.addMapping("/api/clothing/all").allowedOrigins("http://localhost:9000");
+				registry.addMapping("/api/clothing/add").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/api/clothing/all").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
