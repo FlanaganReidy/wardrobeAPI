@@ -21,13 +21,13 @@ public class WardrobeController{
         return "index";
     }
 
-    @RequestMapping (produces = "application/json", path = "/clothing/all", method = RequestMethod.GET )
+    @RequestMapping(produces = "application/json", path = "/clothing/all", method = RequestMethod.GET )
     @ResponseBody
     public List<Clothing> getAllClothes(){
         return wardrobeService.get();
     }
 
-    @RequestMapping (produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
+    @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
     public boolean addClothes(String name, Integer fabricWeight, Integer sleeveLength) {
         Clothing clothing = new Clothing();
