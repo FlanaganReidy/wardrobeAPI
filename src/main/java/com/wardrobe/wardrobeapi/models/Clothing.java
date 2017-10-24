@@ -3,6 +3,7 @@ package com.wardrobe.wardrobeapi.models;
 
 import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
+import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
 
