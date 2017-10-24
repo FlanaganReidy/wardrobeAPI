@@ -138,6 +138,45 @@ public class WardrobeController{
 
         return byColor;
     }
+    @RequestMapping(produces = "application/json", path = "/clothing/mood", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Clothing> getAllMood(String mood) {
+        List<Clothing> byMood = new ArrayList();
+        switch (mood) {
+            case "Happy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.HAPPY)
+                        .collect(Collectors.toList());
+                break;
+            case "Gloomy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.GLOOMY)
+                        .collect(Collectors.toList());
+                break;
+            case "Sexy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.SEXY)
+                        .collect(Collectors.toList());
+                break;
+            case "Angry":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.ANGRY)
+                        .collect(Collectors.toList());
+                break;
+            case "Shy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.SHY)
+                        .collect(Collectors.toList());
+                break;
+        }
+
+        return byMood;
+    }
     @RequestMapping(produces = "application/json", path = "/clothing/delete", method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteClothes(Integer id){
