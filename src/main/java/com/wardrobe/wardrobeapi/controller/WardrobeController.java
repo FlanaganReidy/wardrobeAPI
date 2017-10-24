@@ -30,13 +30,18 @@ public class WardrobeController{
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
     public boolean addClothes(String name, Integer fabricWeight, Integer sleeveLength) {
-        Clothing clothing = new Clothing();
-        clothing.setName(name);
-        clothing.setFabricWeight(fabricWeight);
-        clothing.setSleeveLength(sleeveLength);
-        clothing.setClean(true);
-        wardrobeService.add(clothing);
-        return true;
+        try {
+            Clothing clothing = new Clothing();
+            clothing.setName(name);
+            clothing.setFabricWeight(fabricWeight);
+            clothing.setSleeveLength(sleeveLength);
+            clothing.setClean(true);
+            wardrobeService.add(clothing);
+            return true;
+        }
+        catch(NullPointerException ex){
+            return false;
+        }
     }
 
     @RequestMapping(produces = "application/json", path = "/api/clothing/update", method = RequestMethod.PUT)
