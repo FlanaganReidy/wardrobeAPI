@@ -40,6 +40,7 @@ public class WardrobeController{
             return true;
         }
         catch(NullPointerException ex){
+            System.out.print("name: " + name + "\n fabricWeight: " + fabricWeight +"\n sleeveLength: "+ sleeveLength);
             return false;
         }
     }
