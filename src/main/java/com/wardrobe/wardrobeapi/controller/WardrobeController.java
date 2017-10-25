@@ -1,11 +1,15 @@
 package com.wardrobe.wardrobeapi.controller;
 
+import com.wardrobe.wardrobeapi.Enums.Color;
+import com.wardrobe.wardrobeapi.Enums.Mood;
 import com.wardrobe.wardrobeapi.models.Clothing;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "https://tunic-wardrobe-api.herokuapp.com", maxAge = 3600)
 @RestController
@@ -29,9 +33,53 @@ public class WardrobeController{
 
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
-    public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength) {
+    public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength, String color, String mood) {
         try {
             Clothing clothing = new Clothing();
+            switch (color) {
+                case "Red":
+                    clothing.setColor(Color.RED);
+                    break;
+                case "Orange":
+                    clothing.setColor(Color.ORANGE);
+                    break;
+                case "Yellow":
+                    clothing.setColor(Color.YELLOW);
+                    break;
+                case "Green":
+                    clothing.setColor(Color.GREEN);
+                    break;
+                case "Blue":
+                    clothing.setColor(Color.BLUE);
+                    break;
+                case "Purple":
+                    clothing.setColor(Color.PURPLE);
+                    break;
+                case "White":
+                    clothing.setColor(Color.WHITE);
+                    break;
+                case "Black":
+                    clothing.setColor(Color.BLACK);
+                    break;
+            }
+            switch (mood) {
+                case "Happy":
+                    clothing.setMood(Mood.HAPPY);
+                    break;
+                case "Gloomy":
+                    clothing.setMood(Mood.GLOOMY);
+                    break;
+                case "Sexy":
+                    clothing.setMood(Mood.SEXY);
+                    break;
+                case "Angry":
+                    clothing.setMood(Mood.ANGRY);
+                    break;
+                case "Shy":
+                    clothing.setMood(Mood.SHY);
+                    break;
+            }
+
             clothing.setName(name);
             clothing.setFabricWeight(fabricWeight);
             clothing.setSleeveLength(sleeveLength);
