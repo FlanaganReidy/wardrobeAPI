@@ -53,6 +53,102 @@ public class WardrobeController{
         return true;
     }
 
+    @RequestMapping(produces = "application/json", path = "/clothing/color", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Clothing> getAllColor(String color) {
+        List<Clothing> byColor = new ArrayList();
+        switch (color) {
+            case "Red":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.RED)
+                        .collect(Collectors.toList());
+                break;
+            case "Orange":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.ORANGE)
+                        .collect(Collectors.toList());
+                break;
+            case "Yellow":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.YELLOW)
+                        .collect(Collectors.toList());
+                break;
+            case "Green":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.GREEN)
+                        .collect(Collectors.toList());
+                break;
+            case "Blue":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.BLUE)
+                        .collect(Collectors.toList());
+                break;
+            case "Purple":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.PURPLE)
+                        .collect(Collectors.toList());
+                break;
+            case "White":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.WHITE)
+                        .collect(Collectors.toList());
+                break;
+            case "Black":
+                byColor = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getColor() == Color.BLACK)
+                        .collect(Collectors.toList());
+                break;
+        }
+
+        return byColor;
+    }
+    @RequestMapping(produces = "application/json", path = "/clothing/mood", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Clothing> getAllMood(String mood) {
+        List<Clothing> byMood = new ArrayList();
+        switch (mood) {
+            case "Happy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.HAPPY)
+                        .collect(Collectors.toList());
+                break;
+            case "Gloomy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.GLOOMY)
+                        .collect(Collectors.toList());
+                break;
+            case "Sexy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.SEXY)
+                        .collect(Collectors.toList());
+                break;
+            case "Angry":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.ANGRY)
+                        .collect(Collectors.toList());
+                break;
+            case "Shy":
+                byMood = wardrobeService.get()
+                        .stream()
+                        .filter(e -> e.getMood() == Mood.SHY)
+                        .collect(Collectors.toList());
+                break;
+        }
+
+        return byMood;
+    }
     @RequestMapping(produces = "application/json", path = "api/clothing/delete", method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteClothes(int id){
