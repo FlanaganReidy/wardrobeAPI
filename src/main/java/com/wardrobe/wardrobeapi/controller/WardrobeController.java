@@ -28,7 +28,7 @@ public class WardrobeController{
     }
 
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
-    public boolean addClothes(@RequestBody String name, @RequestBody Integer fabricWeight, @RequestBody Integer sleeveLength) {
+    public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength) {
         try {
             Clothing clothing = new Clothing();
             clothing.setName(name);
