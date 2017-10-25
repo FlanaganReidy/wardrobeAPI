@@ -28,6 +28,7 @@ public class WardrobeController{
     }
 
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
+    @ResponseBody
     public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength) {
         try {
             Clothing clothing = new Clothing();
@@ -39,7 +40,7 @@ public class WardrobeController{
             return true;
         }
         catch(NullPointerException ex){
-            System.out.print("name: " + name + "\n fabricWeight: " + fabricWeight +"\n sleeveLength: "+ sleeveLength);
+            System.out.print("\n name: " + name + "\n fabricWeight: " + fabricWeight +"\n sleeveLength: "+ sleeveLength);
             return false;
         }
     }
