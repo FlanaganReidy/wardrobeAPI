@@ -95,4 +95,18 @@ public class Clothing {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public void calcWarmPoints(){
+        Integer warmPoints = 0;
+        switch (this.fabricWeight){
+            case 1: warmPoints = 40;
+            break;
+            case 2: warmPoints = 60;
+            break;
+            case 3: warmPoints = 80;
+            break;
+        }
+        warmPoints += this.sleeveLength * 10;
+        this.setWarmPoints(warmPoints);
+    }
 }

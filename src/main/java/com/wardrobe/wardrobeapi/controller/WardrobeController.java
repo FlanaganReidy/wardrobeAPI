@@ -32,6 +32,11 @@ public class WardrobeController{
         return wardrobeService.get();
     }
 
+    @RequestMapping(produces = "application/json", path = "/clothing/item", method = RequestMethod.GET)
+    public Clothing getOneClothingItem(Integer id){
+        return wardrobeService.getById(id);
+    }
+
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
     public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength, String color, String mood) {
@@ -84,6 +89,7 @@ public class WardrobeController{
             clothing.setName(name);
             clothing.setFabricWeight(fabricWeight);
             clothing.setSleeveLength(sleeveLength);
+            clothing.calcWarmPoints();
             clothing.setClean(true);
             wardrobeService.add(clothing);
             return true;
@@ -94,7 +100,7 @@ public class WardrobeController{
         }
     }
 
-    @RequestMapping(produces = "application/json", path = "/api/clothing/update", method = RequestMethod.PUT)
+    @RequestMapping(produces = "application/json", path = "clothing/update", method = RequestMethod.PUT)
     @ResponseBody
     public boolean updateClothing(Integer id, String name, Integer fabricWeight, Integer sleeveLength, String color, String mood){
 
@@ -147,6 +153,7 @@ public class WardrobeController{
             clothing.setName(name);
             clothing.setFabricWeight(fabricWeight);
             clothing.setSleeveLength(sleeveLength);
+            clothing.calcWarmPoints();
             clothing.setClean(true);
             wardrobeService.update(clothing);
         }
@@ -253,7 +260,10 @@ public class WardrobeController{
 
         return byMood;
     }
-    @RequestMapping(produces = "application/json", path = "api/clothing/delete", method = RequestMethod.DELETE)
+
+    @RequestMapping(produces = "application/json", path = "clothing/")
+
+    @RequestMapping(produces = "application/json", path = "clothing/delete", method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteClothes(int id){
         wardrobeService.delete(id);
