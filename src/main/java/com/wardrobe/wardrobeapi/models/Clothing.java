@@ -27,11 +27,20 @@ public class Clothing {
     Mood mood;
     @Column(name = "color")
     Color color;
+    @Column(name="warmPoints")
+    private Integer warmPoints;
 
 
     public Clothing() {
     }
 
+    public Integer getWarmPoints() {
+        return warmPoints;
+    }
+
+    public void setWarmPoints(Integer warmPoints) {
+        this.warmPoints = warmPoints;
+    }
 
     public String getName() {
         return name;

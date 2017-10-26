@@ -7,6 +7,7 @@ import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -95,9 +96,64 @@ public class WardrobeController{
 
     @RequestMapping(produces = "application/json", path = "/api/clothing/update", method = RequestMethod.PUT)
     @ResponseBody
-    public boolean updateClothing(Integer id){
+    public boolean updateClothing(Integer id, String name, Integer fabricWeight, Integer sleeveLength, String color, String mood){
+
         Clothing clothing = wardrobeService.getById(id);
-        wardrobeService.update(clothing);
+        try {
+            switch (color) {
+                case "Red":
+                    clothing.setColor(Color.RED);
+                    break;
+                case "Orange":
+                    clothing.setColor(Color.ORANGE);
+                    break;
+                case "Yellow":
+                    clothing.setColor(Color.YELLOW);
+                    break;
+                case "Green":
+                    clothing.setColor(Color.GREEN);
+                    break;
+                case "Blue":
+                    clothing.setColor(Color.BLUE);
+                    break;
+                case "Purple":
+                    clothing.setColor(Color.PURPLE);
+                    break;
+                case "White":
+                    clothing.setColor(Color.WHITE);
+                    break;
+                case "Black":
+                    clothing.setColor(Color.BLACK);
+                    break;
+            }
+            switch (mood) {
+                case "Happy":
+                    clothing.setMood(Mood.HAPPY);
+                    break;
+                case "Gloomy":
+                    clothing.setMood(Mood.GLOOMY);
+                    break;
+                case "Sexy":
+                    clothing.setMood(Mood.SEXY);
+                    break;
+                case "Angry":
+                    clothing.setMood(Mood.ANGRY);
+                    break;
+                case "Shy":
+                    clothing.setMood(Mood.SHY);
+                    break;
+            }
+
+            clothing.setName(name);
+            clothing.setFabricWeight(fabricWeight);
+            clothing.setSleeveLength(sleeveLength);
+            clothing.setClean(true);
+            wardrobeService.update(clothing);
+        }
+        catch(NullPointerException ex){
+            return false;
+        }
+
         return true;
     }
 
