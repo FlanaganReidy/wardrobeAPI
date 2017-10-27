@@ -5,6 +5,7 @@ import com.wardrobe.wardrobeapi.Enums.Mood;
 import com.wardrobe.wardrobeapi.models.Clothing;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Null;
@@ -32,8 +33,8 @@ public class WardrobeController{
         return wardrobeService.get();
     }
 
-    @RequestMapping(produces = "application/json", path = "/clothing/item", method = RequestMethod.GET)
-    public Clothing getOneClothingItem(Integer id){
+    @RequestMapping(produces = "application/json", path = "/clothing/item/{?id}", method = RequestMethod.GET)
+    public Clothing getOneClothingItem(@Param("id")Integer id){
         return wardrobeService.getById(id);
     }
 
