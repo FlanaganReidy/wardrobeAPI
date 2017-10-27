@@ -33,8 +33,8 @@ public class WardrobeController{
         return wardrobeService.get();
     }
 
-    @RequestMapping(produces = "application/json", path = "/clothing/item/{?id}", method = RequestMethod.GET)
-    public Clothing getOneClothingItem(@Param("id")Integer id){
+    @RequestMapping(produces = "application/json", path = "/clothing/item/{id}", method = RequestMethod.GET)
+    public Clothing getOneClothingItem(@PathVariable("id") Integer id){
         return wardrobeService.getById(id);
     }
 
