@@ -32,6 +32,11 @@ public class WardrobeController{
         return wardrobeService.get();
     }
 
+    @RequestMapping(produces = "application/json", path = "/clothing/item", method = RequestMethod.GET)
+    public Clothing getOneClothingItem(Integer id){
+        return wardrobeService.getById(id);
+    }
+
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
     public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength, String color, String mood) {
