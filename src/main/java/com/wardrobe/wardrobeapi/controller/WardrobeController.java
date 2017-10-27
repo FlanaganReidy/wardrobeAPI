@@ -261,8 +261,11 @@ public class WardrobeController{
         return byMood;
     }
 
-    @RequestMapping(produces = "application/json", path = "clothing/")
+    @RequestMapping(produces = "application/json", path = "clothing/warmpoints", )
+    @ResponseBody
+    public List<Clothing> getAllWarmpoints(int temperature){
 
+    }
     @RequestMapping(produces = "application/json", path = "clothing/delete", method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteClothes(int id){
