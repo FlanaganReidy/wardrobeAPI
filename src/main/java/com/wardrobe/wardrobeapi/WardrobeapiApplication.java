@@ -19,25 +19,14 @@ public class WardrobeapiApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/clothing/add").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/all").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/update/{id}").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/delete/{id}").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/todayslook/{temp}").allowedOrigins("http://localhost:3000");
+//				registry.addMapping("/clothing/add").allowedOrigins("http://localhost:3000");
+//				registry.addMapping("/clothing/all").allowedOrigins("http://localhost:3000");
+//				registry.addMapping("/clothing/update/{id}").allowedOrigins("http://localhost:3000");
+//				registry.addMapping("/clothing/delete/{id}").allowedOrigins("http://localhost:3000");
+//				registry.addMapping("/clothing/todayslook/{temp}").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/**");
 			}
 		};
 	}
-//	@Configuration
-//	public class WebConfig {
-//
-//    @Bean
-//    public WebMvcConfigurer corsConfigurer() {
-//        return new WebMvcConfigurerAdapter() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**");
-//            }
-//        };
-//    }
-//}
+
 }
