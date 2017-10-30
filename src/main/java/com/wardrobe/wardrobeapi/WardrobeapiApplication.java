@@ -14,29 +14,29 @@ public class WardrobeapiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WardrobeapiApplication.class, args);
 	}
-//	@Bean
-//	public WebMvcConfigurer corsConfigurer() {
-//		return new WebMvcConfigurerAdapter() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/clothing/add").allowedOrigins("http://localhost:3000");
-//				registry.addMapping("/clothing/all").allowedOrigins("http://localhost:3000");
-//				registry.addMapping("/clothing/update").allowedOrigins("http://localhost:3000");
-//				registry.addMapping("/clothing/delete").allowedOrigins("http://localhost:3000");
-//			}
-//		};
-//	}
-	@Configuration
-public class WebConfig {
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**");
-            }
-        };
-    }
-}
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/clothing/add").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/all").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/update/").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/delete").allowedOrigins("http://localhost:3000");
+			}
+		};
+	}
+//	@Configuration
+//	public class WebConfig {
+//
+//    @Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurerAdapter() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/**");
+//            }
+//        };
+//    }
+//}
 }
