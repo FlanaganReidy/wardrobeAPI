@@ -267,4 +267,16 @@ public class WardrobeController{
         wardrobeService.delete(id);
         return true;
     }
+    @RequestMapping(produces = "application/json", path = "/clothing/todayslook/{temp}", method = RequestMethod.GET)
+    public List<Clothing> getTodaysLook(@PathVariable("temp") Integer temp){
+
+        return wardrobeService.get()
+                .stream()
+                .filter(e -> e.getWarmPoints()>=(temp - 10))
+                .filter(e-> e.getWarmPoints()<=(temp +10))
+                .collect(Collectors.toList());
+
+
+
+    }
 }
