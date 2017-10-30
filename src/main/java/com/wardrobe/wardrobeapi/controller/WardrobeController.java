@@ -100,9 +100,9 @@ public class WardrobeController{
         }
     }
 
-    @RequestMapping(produces = "application/json", path = "/clothing/update", method = RequestMethod.PUT)
+    @RequestMapping(produces = "application/json", path = "/clothing/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public boolean updateClothing(Integer id, String name, Integer fabricWeight, Integer sleeveLength, String color, String mood){
+    public Clothing updateClothing(@PathVariable("id") Integer id, String name, Integer fabricWeight, Integer sleeveLength, String color, String mood){
 
         Clothing clothing = wardrobeService.getById(id);
         try {
@@ -157,10 +157,10 @@ public class WardrobeController{
             wardrobeService.update(clothing);
         }
         catch(NullPointerException ex){
-            return false;
+            return null;
         }
 
-        return true;
+        return clothing;
     }
 
     @RequestMapping(produces = "application/json", path = "/clothing/color", method = RequestMethod.POST)
