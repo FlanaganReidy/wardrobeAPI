@@ -13,31 +13,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "https://tunic-wardrobe-api.herokuapp.com", maxAge = 3600)
 @RestController
 public class WardrobeController{
 
     @Autowired
     WardrobeService wardrobeService;
 
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/", method = RequestMethod.GET)
     @ResponseBody
     public String index(){
         return "index";
     }
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/all", method = RequestMethod.GET )
     @ResponseBody
     public List<Clothing> getAllClothes(){
         return wardrobeService.get();
     }
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/item/{id}", method = RequestMethod.GET)
     public Clothing getOneClothingItem(@PathVariable("id") Integer id){
         return wardrobeService.getById(id);
     }
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/add", method = RequestMethod.POST)
     @ResponseBody
     public boolean addClothes( String name, Integer fabricWeight, Integer sleeveLength, String color, String mood) {
@@ -100,7 +99,7 @@ public class WardrobeController{
             return false;
         }
     }
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public Clothing updateClothing(@PathVariable("id") Integer id, String name, Integer fabricWeight, Integer sleeveLength, String color, String mood){
@@ -164,7 +163,7 @@ public class WardrobeController{
 
         return clothing;
     }
-
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/color", method = RequestMethod.POST)
     @ResponseBody
     public List<Clothing> getAllColor(String color) {
@@ -222,6 +221,7 @@ public class WardrobeController{
 
         return byColor;
     }
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/mood", method = RequestMethod.POST)
     @ResponseBody
     public List<Clothing> getAllMood(String mood) {
@@ -261,12 +261,14 @@ public class WardrobeController{
 
         return byMood;
     }
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public boolean deleteClothes(@PathVariable("id") Integer id){
         wardrobeService.delete(id);
         return true;
     }
+    @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/clothing/todayslook/{temp}", method = RequestMethod.GET)
     public List<Clothing> getTodaysLook(@PathVariable("temp") Integer temp){
 
