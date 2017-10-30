@@ -91,6 +91,7 @@ public class WardrobeController{
             clothing.setFabricWeight(fabricWeight);
             clothing.setSleeveLength(sleeveLength);
             clothing.setClean(true);
+            clothing.calcWarmPoints();
             wardrobeService.add(clothing);
             return true;
         }
@@ -154,6 +155,7 @@ public class WardrobeController{
             clothing.setFabricWeight(fabricWeight);
             clothing.setSleeveLength(sleeveLength);
             clothing.setClean(true);
+            clothing.calcWarmPoints();
             wardrobeService.update(clothing);
         }
         catch(NullPointerException ex){
