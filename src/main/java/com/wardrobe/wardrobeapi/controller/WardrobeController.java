@@ -261,9 +261,9 @@ public class WardrobeController{
 
         return byMood;
     }
-    @RequestMapping(produces = "application/json", path = "/clothing/delete", method = RequestMethod.DELETE)
+    @RequestMapping(produces = "application/json", path = "/clothing/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public boolean deleteClothes(int id){
+    public boolean deleteClothes(@PathVariable("id") Integer id){
         wardrobeService.delete(id);
         return true;
     }
