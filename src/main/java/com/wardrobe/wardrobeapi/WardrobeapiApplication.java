@@ -21,8 +21,9 @@ public class WardrobeapiApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/clothing/add").allowedOrigins("http://localhost:3000");
 				registry.addMapping("/clothing/all").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/update/").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/clothing/delete").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/update/{id}").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/delete/{id}").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/clothing/todayslook/{temp}").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
