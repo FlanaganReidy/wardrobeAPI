@@ -3,6 +3,7 @@ package com.wardrobe.wardrobeapi.models;
 
 import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
+import org.hibernate.annotations.Cascade;
 import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
@@ -29,9 +30,21 @@ public class Clothing {
     Color color;
     @Column(name="warmPoints")
     private Integer warmPoints;
+    @Column(name="image")
+    private Photo photo;
 
 
     public Clothing() {
+    }
+
+
+    @OneToOne
+    public Photo getImage() {
+        return photo;
+    }
+
+    public void setImage(Photo photo) {
+        this.photo = photo;
     }
 
     public Integer getWarmPoints() {
