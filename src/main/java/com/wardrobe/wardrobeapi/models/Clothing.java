@@ -99,11 +99,11 @@ public class Clothing {
     public void calcWarmPoints(){
         Integer warmPoints = 0;
         switch (this.fabricWeight){
-            case 1: warmPoints = 40;
+            case 1: warmPoints = 20;
                 break;
-            case 2: warmPoints = 60;
+            case 2: warmPoints = 50;
                 break;
-            case 3: warmPoints = 80;
+            case 3: warmPoints = 70;
                 break;
         }
         warmPoints += this.sleeveLength * 10;
