@@ -13,6 +13,8 @@ public class Photo {
     @Column(name="image")
     private byte[] image;
 
+    public Photo() {
+    }
 
     public Long getId() {
         return id;

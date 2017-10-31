@@ -3,10 +3,14 @@ package com.wardrobe.wardrobeapi.controller;
 import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
 import com.wardrobe.wardrobeapi.entities.Clothing;
+import com.wardrobe.wardrobeapi.entities.Photo;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -277,6 +281,30 @@ public class WardrobeController{
                 .collect(Collectors.toList());
 
 
+
+    }
+    @CrossOrigin
+    @RequestMapping(produces = "application/json", path="/clothing/add/{id}/photo", method = RequestMethod.POST)
+    public Clothing singleFileUpload(@PathVariable("id") Integer id, @RequestParam("file") MultipartFile file,
+                                   RedirectAttributes redirectAttributes) {
+        Clothing clothing = wardrobeService.getById(id);
+
+        if (file.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return null;
+        }
+
+        try {
+            Photo photo = new Photo();
+            clothing.setImage(photo);
+            // Get the file and save it somewhere
+            photo.setImage(file.getBytes());
+            
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
