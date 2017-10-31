@@ -4,6 +4,7 @@ import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
 import com.wardrobe.wardrobeapi.entities.Clothing;
 import com.wardrobe.wardrobeapi.entities.Photo;
+import com.wardrobe.wardrobeapi.service.PhotoService;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,9 @@ public class WardrobeController{
 
     @Autowired
     WardrobeService wardrobeService;
+
+    @Autowired
+    PhotoService photoService;
 
     @CrossOrigin
     @RequestMapping(produces = "application/json", path = "/", method = RequestMethod.GET)
@@ -299,11 +303,16 @@ public class WardrobeController{
             clothing.setImage(photo);
             // Get the file and save it somewhere
             photo.setImage(file.getBytes());
-            
+            photoService.add(photo);
 
+            wardrobeService.update(clothing);
+
+
+            return clothing;
 
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
     }
