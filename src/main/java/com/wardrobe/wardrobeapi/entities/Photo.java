@@ -1,10 +1,6 @@
-package com.wardrobe.wardrobeapi.models;
+package com.wardrobe.wardrobeapi.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Photo {
@@ -16,6 +12,7 @@ public class Photo {
 
     @Column(name="image")
     private byte[] image;
+
 
     public Long getId() {
         return id;

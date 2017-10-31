@@ -1,10 +1,8 @@
-package com.wardrobe.wardrobeapi.models;
+package com.wardrobe.wardrobeapi.entities;
 
 
 import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
-import org.hibernate.annotations.Cascade;
-import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
 
@@ -18,25 +16,32 @@ public class Clothing {
 
     @Column(name = "name")
     String name;
+
     @Column(name = "sleeveLength")
     private Integer sleeveLength;
+
     @Column(name = "fabricWeight")
     private Integer fabricWeight;
+
     @Column(name = "isClean")
     Boolean isClean;
+
     @Column(name = "mood")
     Mood mood;
+
     @Column(name = "color")
     Color color;
+
     @Column(name="warmPoints")
     private Integer warmPoints;
+
     @Column(name="image")
+    @OneToOne
     private Photo photo;
 
 
     public Clothing() {
     }
-
 
     @OneToOne
     public Photo getImage() {

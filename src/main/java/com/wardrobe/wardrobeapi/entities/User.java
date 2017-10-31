@@ -1,4 +1,4 @@
-package com.wardrobe.wardrobeapi.models;
+package com.wardrobe.wardrobeapi.entities;
 
 public class User {
     String name;

@@ -1,6 +1,6 @@
 package com.wardrobe.wardrobeapi.service;
 
-import com.wardrobe.wardrobeapi.models.Clothing;
+import com.wardrobe.wardrobeapi.entities.Clothing;
 
 import java.util.List;
 

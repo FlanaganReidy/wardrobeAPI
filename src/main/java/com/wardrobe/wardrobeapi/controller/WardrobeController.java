@@ -2,13 +2,11 @@ package com.wardrobe.wardrobeapi.controller;
 
 import com.wardrobe.wardrobeapi.Enums.Color;
 import com.wardrobe.wardrobeapi.Enums.Mood;
-import com.wardrobe.wardrobeapi.models.Clothing;
+import com.wardrobe.wardrobeapi.entities.Clothing;
 import com.wardrobe.wardrobeapi.service.WardrobeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
